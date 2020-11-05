@@ -101,7 +101,8 @@ namespace Quantum.Kata.BasicGates {
     // Goal:  Change the qubit state to α |0⟩ + iβ |1⟩ (flip the phase of |1⟩ component of the superposition).
     operation PhaseFlip (q : Qubit) : Unit is Adj+Ctl {
         // ...
-        R1((PI()/2.0), q);
+        //R1((PI()/2.0), q);
+        S(q);
     }
 
 
@@ -115,6 +116,8 @@ namespace Quantum.Kata.BasicGates {
     //        If the qubit is in superposition, change its state according to the effect on basis vectors.
     operation PhaseChange (alpha : Double, q : Qubit) : Unit is Adj+Ctl {
         // ...
+        R1(alpha, q);
+        
     }
 
     // Task 1.7. Global phase change
@@ -129,6 +132,7 @@ namespace Quantum.Kata.BasicGates {
     // in later katas as part of more complicated tasks.
     operation GlobalPhaseChange (q: Qubit) : Unit is Adj+Ctl {
         // ...
+        Ry(2.0 * PI(), q);
     }
 
 
@@ -137,6 +141,7 @@ namespace Quantum.Kata.BasicGates {
     // Goal:  Change the two-qubit state to |Φ⁻⟩ = (|00⟩ - |11⟩) / sqrt(2).
     operation BellStateChange1 (qs : Qubit[]) : Unit is Adj+Ctl {
         // ...
+        Z(qs[0]);
     }
 
 
@@ -145,6 +150,7 @@ namespace Quantum.Kata.BasicGates {
     // Goal:  Change the two-qubit state to |Ψ⁺⟩ = (|01⟩ + |10⟩) / sqrt(2).
     operation BellStateChange2 (qs : Qubit[]) : Unit is Adj+Ctl {
         // ...
+        X(qs[0]);
     }
 
 
@@ -153,6 +159,7 @@ namespace Quantum.Kata.BasicGates {
     // Goal:  Change the two-qubit state to |Ψ⁻⟩ = (|01⟩ - |10⟩) / sqrt(2).
     operation BellStateChange3 (qs : Qubit[]) : Unit is Adj+Ctl {
         // ...
+        Y(qs[0]);
     }
 
 
